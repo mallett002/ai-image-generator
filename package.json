@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node index",
-    "dev": "nodemon index"
+    "dev": "nodemon index",
+    "tailwind:css": "npx tailwindcss -i ./public/static/styles/tailwind.css -o ./public/static/styles/style.css --watch"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +15,8 @@
   "dependencies": {
     "dotenv": "16.4.5",
     "express": "4.19.2",
-    "openai": "4.52.7"
+    "openai": "4.52.7",
+    "tailwindcss": "3.4.4"
   },
   "devDependencies": {
     "nodemon": "3.1.4"
