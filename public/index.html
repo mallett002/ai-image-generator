@@ -4,14 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HTML 5 Boilerplate</title>
     <link rel="stylesheet" href="style.css">
-    <title>OpenAI Image Generator</title>
     <link href="./static/styles/style.css" rel="stylesheet">
+    <script src="js/main.js" defer></script>
+    <title>OpenAI Image Generator</title>
   </head>
   <body>
-    <h1 class="text-3xl font-bold underline text-slate-100">
-        Hello world!
-    </h1>
+    <header class="bg-slate-700 px-8 py-4 text-white">
+        <nav class="flex justify-between items-center">
+            <div>
+                <h2 class="text-3xl font-bold">Open AI Image Generator</h2>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li class="text-sm">
+                        <a href="https://beta.openai.com/docs" target="_blank">
+                            OpenAI Docs
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="bg-gradient-to-b from-slate-700 to-white-500 h-64">
+        <section class="">
+            <form id="image-form" class="pl-8">
+                <h1 class="font-bold text-3xl text-slate-700 pt-20 mb-4">Describe An Image</h1>
+                <div class="form-control">
+                    <input
+                        class="text-sm w-96 max-w-96 p-4 border-2 rounded-md mb-4 text-slate-400"
+                        type="text"
+                        id="prompt"
+                        placeholder="Enter text..." />
+                </div>
+
+                <div class="form-control">
+                    <select name="size" id="size" class="text-sm w-96 max-w-96 p-4 border-2 rounded-md mb-4 text-slate-400">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
+                <button 
+                    class="text-sm py-4 px-8 border-none rounded-md bg-slate-700 text-white cursor-pointer mt-5"
+                    type="submit"
+                >Generate</button>
+            </form>
+        </section>
+
+        <section class="image">
+            <div>
+                <h2 class="msg"></h2>
+                <img src="" alt="" id="image" />
+            </div>
+        </section>
+    </main>
   </body>
 </html>
