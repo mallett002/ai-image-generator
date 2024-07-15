@@ -1,6 +1,9 @@
 function onSubmit(event) {
     event.preventDefault();
 
+    document.querySelector('.msg').textContent = '';
+    document.querySelector('#image').src = '';
+
     const prompt = document.querySelector('#prompt').value;
     const size = document.querySelector('#size').value;
 
@@ -33,9 +36,11 @@ async function generateImageRequest(prompt, size) {
             throw new Error('That image could not be generated')
         }
 
-        const data = await response.json();
+        const {imageUrl} = await response.json();
 
-        console.log({data});
+        console.log({imageUrl});
+        
+        document.querySelector('#image').src = imageUrl;
 
     } catch (error) {
         document.querySelector('.msg').textContent = error;
