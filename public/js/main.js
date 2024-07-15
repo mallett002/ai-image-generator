@@ -1,6 +1,7 @@
 function onSubmit(event) {
     event.preventDefault();
 
+    document.querySelector('#prompt').disabled = true;
     document.querySelector('#msg').textContent = '';
     document.querySelector('#image').src = '';
 
@@ -38,7 +39,11 @@ async function generateImageRequest(prompt, size) {
 
         const {imageUrl} = await response.json();
         
-        document.querySelector('#prompt').value = '';
+        const input = document.querySelector('#prompt');
+
+        input.value = '';
+        input.disabled = false;
+
         document.querySelector('#msg').textContent = `"${prompt}"`;
         document.querySelector('#image').src = imageUrl;
 
