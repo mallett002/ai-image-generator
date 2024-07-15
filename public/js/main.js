@@ -1,7 +1,7 @@
 function onSubmit(event) {
     event.preventDefault();
 
-    document.querySelector('.msg').textContent = '';
+    document.querySelector('#msg').textContent = '';
     document.querySelector('#image').src = '';
 
     const prompt = document.querySelector('#prompt').value;
@@ -37,13 +37,13 @@ async function generateImageRequest(prompt, size) {
         }
 
         const {imageUrl} = await response.json();
-
-        console.log({imageUrl});
         
+        document.querySelector('#prompt').value = '';
+        document.querySelector('#msg').textContent = `"${prompt}"`;
         document.querySelector('#image').src = imageUrl;
 
     } catch (error) {
-        document.querySelector('.msg').textContent = error;
+        document.querySelector('#msg').textContent = error;
     }
 
     removeSpinner();
